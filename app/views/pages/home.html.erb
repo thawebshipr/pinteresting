@@ -1,6 +1,17 @@
 <div class="jumbotron center">
 	<h2> Rate your local Real Estate agent</h2>
 	<BR>
-	<p> <%= link_to "Login", "#", class: "btn btn-default btn-lg" %>
-	<%= link_to "Sign up", "#", class: "btn btn-primary btn-lg" %></p>
+
+ <% if user_signed_in? %>
+ 	Velkommen, Du er nu klar til at vurdere din lokale ejendomsmægler.
+
+ <% else %>
+
+	<p> 
+	<%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+	</p>
+
+ <% end %>
+
+
 </div>

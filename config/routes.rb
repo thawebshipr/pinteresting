@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root "pages#home"
-  get "about" => "pages#about" #Creates about_pah
+  get "about" => "pages#about" #Creates about_path
+  get "agents" => "pages#agents"
+  get "signup" => "pages#signup"
+  get "login" => "pages#login"  
 
   
 

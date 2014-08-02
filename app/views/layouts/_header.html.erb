@@ -19,13 +19,26 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Agents", agents_path %></li>
         <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Sign Up", signup_path %></li>
+
+        <% if user_signed_in? %>
+        <% else %>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <% end %>
         
 
          <% if user_signed_in? %>
-         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+         <li class="dropdown">
+         <a href="#"  data-toggle="dropdown">Dit Vurdera <span class="caret"></span></a>
+
+
+         <ul class="dropdown-menu" role="menu">
+          <li class="dropdown"><%= link_to "Skift kodeord", edit_user_registration_path, class: "dropdown-toggle" %></li>
+          <li class="dropdown"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-toggle" %></li>
+        </ul>
+        </li>
          <% else %>
          <li><%= link_to "Login", new_user_session_path %></li>
+         
          <% end %>
 
       </ul>
